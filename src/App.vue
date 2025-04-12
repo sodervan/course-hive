@@ -1,20 +1,13 @@
 <template>
   <div>
-    <Button>Click me</Button>
+    <router-view />
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import { Button } from '@/components/ui/button';
-
-export default defineComponent({
-  name: 'MyComponent',
-  components: {
-    Button
-  }
-});
+export default {
+  name: "App",
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
