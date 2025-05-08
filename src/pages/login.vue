@@ -11,14 +11,24 @@
           class="mb-4 py-3 px-4 border border-gray-200 rounded-full placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none text-sm"
           required
         />
-        <input
-          v-model="password"
-          type="password"
-          placeholder="Password"
-          class="mb-6 py-3 px-4 border border-gray-200 rounded-full placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none text-sm"
-          required
-        />
-         <button
+        <div class="relative mb-6">
+          <input
+            v-model="password"
+            :type="isPasswordVisible ? 'text' : 'password'"
+            placeholder="Password"
+            class="py-3 px-4 border border-gray-200 rounded-full placeholder:text-sm placeholder:text-gray-400 focus-visible:outline-none text-sm w-full"
+            required
+          />
+          <button
+            type="button"
+            @click="togglePasswordVisibility"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 focus:outline-none"
+          >
+            <span v-if="isPasswordVisible">🙈</span>
+            <span v-else>👁️</span>
+          </button>
+        </div>
+        <button
           type="submit"
           :disabled="!isFormValid || isLoading"
           class="bg-blue-500 text-white py-3 rounded-full font-medium relative flex justify-center items-center disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
@@ -62,8 +72,13 @@ const router = useRouter();
 const isLoading = ref(false);
 const username = ref("");
 const password = ref("");
+const isPasswordVisible = ref(false);
 
 const isFormValid = computed(() => username.value.trim() !== "" && password.value.trim() !== "");
+
+const togglePasswordVisibility = () => {
+  isPasswordVisible.value = !isPasswordVisible.value;
+};
 
 const handleLogin = async () => {
   console.log("Signup button clicked");
