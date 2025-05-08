@@ -71,9 +71,10 @@
               ></div>
             </button>
             <button
-              class="relative overflow-hidden px-5 py-2 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all duration-200 ease-in-out"
+              class="cursor-pointer relative overflow-hidden px-5 py-2 rounded-full bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all duration-200 ease-in-out"
               @mouseenter="logoutBtnHovered = true"
               @mouseleave="logoutBtnHovered = false"
+              @click="$router.push('/')"
             >
               <span class="relative z-10">Log Out</span>
               <div

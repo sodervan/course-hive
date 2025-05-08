@@ -142,9 +142,6 @@ body {
 .winky {
   font-family: 'Winky Rough', cursive;
 }
-button {
-  cursor: pointer;
-}
 
 /*body {*/
 /*  font-family: var(--font-family-primary);*/
