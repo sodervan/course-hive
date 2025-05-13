@@ -26,7 +26,7 @@
                   ></path>
                 </svg>
                 <span
-                  class="ml-2 text-purple-800 font-bold text-xl tracking-tight"
+                  class="ml-2 text-purple-600 font-bold text-xl tracking-tight"
                   >CourseHive</span
                 >
               </div>
