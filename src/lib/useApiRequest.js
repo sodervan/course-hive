@@ -2,6 +2,9 @@ import { ref } from 'vue';
 
 export function useApiRequest() {
   const isLoading = ref(false);
+  const setIsLoading = (value) => {
+    isLoading.value = value;
+  };
 
   const makeRequest = async (url, method, body) => {
     isLoading.value = true;
@@ -25,5 +28,5 @@ export function useApiRequest() {
     }
   };
 
-  return { isLoading, makeRequest };
+  return { isLoading, setIsLoading, makeRequest };
 }

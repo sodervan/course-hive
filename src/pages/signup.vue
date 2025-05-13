@@ -28,7 +28,7 @@ import { useApiRequest } from "@/lib/useApiRequest";
 import { useFormValidation } from "@/lib/useFormValidation";
 
 const router = useRouter();
-const { isLoading, makeRequest } = useApiRequest();
+const { isLoading, setIsLoading, makeRequest } = useApiRequest();
 
 const username = ref("");
 const fullName = ref("");
@@ -52,6 +52,8 @@ const handleSignup = async () => {
     router.push("/main");
   } catch (error) {
     console.error(error);
+  } finally {
+    setIsLoading(false);
   }
 };
 </script>
