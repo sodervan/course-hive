@@ -11,7 +11,7 @@
       buttonClass="bg-purple-600 text-white py-3 rounded-full font-medium relative flex justify-center items-center disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer" />
     <p class="mt-4 flex gap-x-6 text-sm">
       Don't have an account?
-      <router-link to="/signup" class="cursor-pointer text-blue-600">Sign Up</router-link>
+      <router-link to="/signup" class="cursor-pointer text-blue-600 w-fit ml-auto">Sign Up</router-link>
     </p>
   </form>
 </template>
@@ -25,7 +25,7 @@ import { useApiRequest } from "@/lib/useApiRequest";
 import { useFormValidation } from "@/lib/useFormValidation";
 
 const router = useRouter();
-const { isLoading, setIsLoading, makeRequest } = useApiRequest();
+const { isLoading, makeRequest } = useApiRequest();
 
 const username = ref("");
 const password = ref("");
@@ -45,8 +45,6 @@ const handleLogin = async () => {
     router.push("/main");
   } catch (error) {
     console.error(error);
-  } finally {
-    setIsLoading(false);
   }
 };
 </script>

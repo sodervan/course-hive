@@ -2,9 +2,6 @@ import { ref } from 'vue';
 
 export function useApiRequest() {
   const isLoading = ref(false);
-  const setIsLoading = (value) => {
-    isLoading.value = value;
-  };
 
   const makeRequest = async (url, method, body) => {
     isLoading.value = true;
@@ -15,6 +12,7 @@ export function useApiRequest() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(body),
+        credentials: 'omit',
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -28,5 +26,5 @@ export function useApiRequest() {
     }
   };
 
-  return { isLoading, setIsLoading, makeRequest };
+  return { isLoading, makeRequest };
 }

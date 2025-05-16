@@ -178,12 +178,12 @@
             >
               Settings
             </a>
-            <a
-              href="#"
+            <router-link
+              to="/"
               class="block px-3 py-2 rounded-md text-base font-medium text-red-600 hover:text-red-800 hover:bg-red-50 transition-colors duration-200 ease-in-out"
             >
               Log out
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
